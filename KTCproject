@@ -1,0 +1,9 @@
+import requests
+from bs4 import BeautifulSoup
+url = 'https://knowthychoice.in/blog/'
+reqs = requests.get(url)
+soup = BeautifulSoup(reqs.text, 'lxml')
+print("{")
+for headings in soup.find_all(["h2"]):
+    print( headings.text.strip())
+print("}")
